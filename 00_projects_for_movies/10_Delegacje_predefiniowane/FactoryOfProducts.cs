@@ -1,0 +1,236 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace C_Delegacje_predefiniowane
+{
+  class FactoryOfProducts
+  {
+    static string[] pyry = { "bakłażan",
+                             "batat",
+                             "botwina",
+                             "bobik",
+                             "brokuł",
+                             "brukiew",
+                             "brukselka",
+                             "burak",
+                             "cebula",
+                             "chrzan",
+                             "ciecierzyca",
+                             "cukinia",
+                             "cykoria",
+                             "czosnek",
+                             "czyściec bulwiasty",
+                             "dynia",
+                             "endywia",
+                             "fasola",
+                             "fasolka szparagowa",
+                             "fenkuł",
+                             "groch",
+                             "groch włoski zob. ciecierzyca",
+                             "ignam zob. pochrzyn",
+                             "jarmuż",
+                             "kabaczek zob. cukinia",
+                             "kalafior",
+                             "kalarepa",
+                             "kapar",
+                             "kapusta",
+                             "kapusta pekińska",
+                             "karczoch",
+                             "kiwano",
+                             "kolczoch",
+                             "koper",
+                             "koper włoski zob. fenkuł",
+                             "kukurydza",
+                             "maniok",
+                             "marchew",
+                             "marchew czarna",
+                             "miechunka",
+                             "oberżyna",
+                             "ogórek",
+                             "oliwka",
+                             "papryka",
+                             "papryka cayenne",
+                             "papryka chili",
+                             "pasternak",
+                             "patat zob. batat",
+                             "patison",
+                             "peperoni",
+                             "pieprzyca siewna",
+                             "pietruszka",
+                             "pochrzyn",
+                             "pomidor",
+                             "por",
+                             "portulaka",
+                             "rabarbar",
+                             "roszponka",
+                             "rukola",
+                             "rzepa",
+                             "rzeżucha",
+                             "rzodkiewka",
+                             "salsefia",
+                             "sałata",
+                             "sałata dębolistna",
+                             "sałata rzymska",
+                             "seler",
+                             "skorzonera",
+                             "soczewica",
+                             "soja",
+                             "szalotka",
+                             "szczaw",
+                             "szczypior",
+                             "szparag",
+                             "szpinak",
+                             "wasabi",
+                             "ziemniak" };
+
+    static string[] litwo = { "Litwo! Ojczyzno moja! ty jesteś jak zdrowie:",
+                              "Ile cię trzeba cenić, ten tylko się dowie,",
+                              "Kto cię stracił. Dziś piękność twą w całej ozdobie",
+                              "Widzę i opisuję, bo tęsknię po tobie.",
+                              "Matka Boska, Opieka, Cud",
+                              "Panno święta, co Jasnej bronisz Częstochowy",
+                              "I w Ostrej świecisz Bramie[2]! Ty, co gród zamkowy",
+                              "Nowogródzki ochraniasz z jego wiernym ludem!",
+                              "Jak mnie dziecko do zdrowia powróciłaś cudem",
+                              "(Gdy od płaczącej matki[3], pod Twoją opiekę",
+                              "Ofiarowany, martwą podniosłem powiekę,",
+                              "I zaraz mogłem pieszo, do Twych świątyń progu",
+                              "Iść za wrócone życie podziękować Bogu),",
+                              "Tak nas powrócisz cudem na Ojczyzny łono.",
+                              "Rośliny",
+                              "Tymczasem przenoś moją duszę utęsknioną",
+                              "Do tych pagórków leśnych, do tych łąk zielonych,",
+                              "Szeroko nad błękitnym Niemnem rozciągnionych,",
+                              "Do tych pól malowanych zbożem rozmaitem,",
+                              "Wyzłacanych pszenicą, posrebrzanych żytem,",
+                              "Gdzie bursztynowy świerzop[4], gryka jak śnieg biała,",
+                              "Gdzie panieńskim rumieńcem dzięcielina[5] pała,",
+                              "A wszystko przepasane jakby wstęgą, miedzą",
+                              "Zieloną, na niej z rzadka ciche grusze siedzą.",
+                              "Dom",
+                              "Śród takich pól przed laty, nad brzegiem ruczaju[6],",
+                              "Na pagórku niewielkim, we brzozowym gaju,",
+                              "Stał dwór szlachecki, z drzewa, lecz podmurowany,",
+                              "Drzewo",
+                              "Świeciły się z daleka pobielane ściany,",
+                              "Tym bielsze, że odbite od ciemnej zieleni",
+                              "Topoli, co go bronią od wiatrów jesieni.",
+                              "Dom mieszkalny niewielki, lecz zewsząd chędogi[7],",
+                              "I stodołę miał wielką, i przy niej trzy stogi",
+                              "Użątku[8], co pod strzechą zmieścić się nie może.",
+                              "Widać, że okolica obfita we zboże,",
+                              "I widać z liczby kopic[9], co wzdłuż i wszerz smugów[10]",
+                              "Świecą gęsto jak gwiazdy, widać z liczby pługów",
+                              "Orzących wcześnie łany ogromne ugoru[11],",
+                              "Czarnoziemne, zapewne należne do dworu,",
+                              "Uprawne dobrze na kształt ogrodowych grządek:",
+                              "Że w tym domu dostatek mieszka i porządek.",
+                              "Brama na wciąż[12] otwarta przechodniom ogłasza,",
+                              "Że gościnna, i wszystkich w gościnę zaprasza.",
+                              "Właśnie dwukonną bryką wjechał młody panek",
+                              "I obiegłszy dziedziniec zawrócił przed ganek.",
+                              "Wysiadł z powozu, konie porzucone same,",
+                              "Szczypiąc trawę ciągnęły powoli pod bramę.",
+                              "Dom, Gość, Dzieciństwo, Wspomnienia",
+                              "We dworze pusto: bo drzwi od ganku zamknięto",
+                              "Zaszczepkami i kołkiem zaszczepki przetknięto.",
+                              "Podróżny do folwarku nie biegł sług zapytać,",
+                              "Odemknął, wbiegł do domu, pragnął go powitać.",
+                              "Dawno domu nie widział, bo w dalekim mieście",
+                              "Kończył nauki, końca doczekał nareszcie.",
+                              "Wbiega i okiem chciwie ściany starodawne",
+                              "Ogląda czule, jako swe znajome dawne.",
+                              "Też same widzi sprzęty, też same obicia,",
+                              "Z którymi się zabawiać lubił od powicia[13],",
+                              "Lecz mniej wielkie, mniej piękne niż się dawniej zdały.",
+                              "Historia, Polska",
+                              "I też same portrety na ścianach wisiały:",
+                              "Tu Kościuszko[14] w czamarce[15] krakowskiej, z oczyma",
+                              "Podniesionymi w niebo, miecz oburącz trzyma,",
+                              "Takim był, gdy przysięgał na stopniach ołtarzów,",
+                              "Że tym mieczem wypędzi z Polski trzech mocarzów,",
+                              "Albo sam na nim padnie. Dalej w polskiej szacie",
+                              "Siedzi Rejtan[16], żałośny po wolności stracie,",
+                              "W ręku trzyma nóż ostrzem zwrócony do łona,",
+                              "A przed nim leży Fedon[17] i żywot Katona[18].",
+                              "Dalej Jasiński[19], młodzian piękny i posępny,",
+                              "Obok Korsak[20], towarzysz jego nieodstępny:",
+                              "Stoją na szańcach[21] Pragi, na stosach Moskali,",
+                              "Siekąc wrogów, a Praga już się wkoło pali.",
+                              "Nawet stary stojący zegar kurantowy[22]",
+                              "W drewnianej szafie poznał, u wniścia[23] alkowy[24],",
+                              "I z dziecinną radością pociągnął za sznurek,",
+                              "By stary Dąbrowskiego usłyszeć mazurek.",
+                              "Biegał po całym domu i szukał komnaty,",
+                              "Dom, Kobieta",
+                              "Gdzie mieszkał dzieckiem będąc, przed dziesięciu laty.",
+                              "Wchodzi, cofnął się, toczył zdumione źrenice",
+                              "Po ścianach: w tej komnacie mieszkanie kobiéce!",
+                              "Któż by tu mieszkał? Stary stryj nie był żonaty,",
+                              "A ciotka w Petersburgu mieszkała przed laty.",
+                              "To nie był ochmistrzyni[25] pokój? Fortepiano?",
+                              "Na nim nuty i książki, wszystko porzucano",
+                              "Niedbale i bezładnie: nieporządek miły!",
+                              "Niestare były rączki, co je tak rzuciły.",
+                              "Tuż i sukienka biała, świeżo z kołka zdjęta",
+                              "Do ubrania, na krzesła poręczu rozpięta,",
+                              "Okno",
+                              "A na oknach donice z pachnącymi ziołki,",
+                              "Geranium, lewkonija[26], astry i fijołki.",
+                              "Podróżny stanął w jednym z okien — nowe dziwo:",
+                              "Ogród",
+                              "W sadzie, na brzegu niegdyś zarosłym pokrzywą,",
+                              "Był maleńki ogródek ścieżkami porznięty[27],",
+                              "Pełen bukietów trawy angielskiej i mięty.",
+                              "Drewniany, drobny, w cyfrę powiązany płotek[28]",
+                              "Połyskał się wstążkami jaskrawych stokrotek,",
+                              "Grządki, widać, że były świeżo polewane,",
+                              "Tuż stało wody pełne naczynie blaszane,",
+                              "Ale nigdzie nie widać było ogrodniczki,",
+                              "Tylko co wyszła: jeszcze kołyszą się drzwiczki",
+                              "Świeżo trącone, blisko drzwi ślad widać nóżki",
+                              "Na piasku, bez trzewika była i pończoszki,",
+                              "Na piasku drobnym, suchym, białym na kształt śniegu,",
+                              "Ślad wyraźny, lecz lekki, odgadniesz, że w biegu",
+                              "Chybkim[29] był zostawiony nóżkami drobnemi",
+                              "Od kogoś[30], co zaledwie dotykał się ziemi."};
+
+
+    private static Random rnd = new Random();
+
+
+    private static char rndChar()
+    {
+      return (char)(65 + rnd.Next(24));
+    }
+
+
+    private static Product CreateProduct(int aID)
+    {
+      Product prod = new Product();
+      prod.ID = aID;
+      prod.Code = "C_" + string.Concat(rndChar(), rndChar(), rndChar(), rndChar(), rndChar(), rndChar());
+      int n = rnd.Next(pyry.Length);
+      prod.Name = char.ToUpper(pyry[n][0]) + pyry[n].Substring(1);
+      prod.Description = string.Format("{0}\r\n{1}\r\n{2}\r\n{3}",
+        litwo[rnd.Next(litwo.Length)],
+        litwo[rnd.Next(litwo.Length)],
+        litwo[rnd.Next(litwo.Length)],
+        litwo[rnd.Next(litwo.Length)]);
+      prod.ProductionDate = (new DateTime((DateTime.Now - TimeSpan.FromDays(rnd.Next(100))).Ticks)).Date;
+      prod.ExpirationDate = prod.ProductionDate + TimeSpan.FromDays(50) + TimeSpan.FromDays(rnd.Next(100));
+      prod.Price = 10 + rnd.Next(100);
+      return prod;
+    }
+
+
+    public static void AddToListRandomProducts(List<Product> list, int count)
+    {
+      for (int i = 0; i < count; i++)
+        list.Add(CreateProduct(i));
+    }
+  }
+}

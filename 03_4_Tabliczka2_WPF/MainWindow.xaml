@@ -1,0 +1,16 @@
+﻿<Window x:Class="_03_4_Tabliczka2_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_03_4_Tabliczka2_WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+  <Grid>
+    <TextBox Text="{Binding Path=Col1, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="35" Margin="170,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="113" FontFamily="Cascadia Mono ExtraLight" FontSize="16" />
+    <TextBox Text="{Binding Path=Col2, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="35" Margin="644,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="113" FontFamily="Cascadia Mono ExtraLight" FontSize="16"/>
+    <TextBox Text="{Binding Path=Row1, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="35" Margin="34,77,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="113" FontFamily="Cascadia Mono ExtraLight" FontSize="16"/>
+    <TextBox Text="{Binding Path=Row2, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="35" Margin="34,360,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="113" FontFamily="Cascadia Mono ExtraLight" FontSize="16"/>
+    <Label  Content="{Binding Path=Wynik, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="214,108,0,0" VerticalAlignment="Top" FontFamily="Cascadia Mono ExtraLight" FontSize="16" Height="Auto" Width="Auto"/>
+  </Grid>
+</Window>
